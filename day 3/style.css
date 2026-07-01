@@ -1,4 +1,52 @@
- *{
+@media screen and (max-width: 768px) {
+    .card {
+        width: 100% !important;
+        float: none !important;
+        display: block !important;
+        margin-bottom: 30px !important;
+        padding: 0 15px !important;
+    }
+
+    .img-container {
+        height: auto !important;
+        line-height: normal !important;
+        padding: 20px !important;
+        text-align: center;
+    }
+
+    .image {
+        max-width: 120px !important;
+        height: auto !important;
+    }
+
+    .card h3 {
+        height: auto !important;
+        overflow: visible !important;
+        font-size: 18px !important;
+        margin-top: 15px !important;
+        text-align: center;
+    }
+
+    .logo {
+        float: none !important;
+        display: block !important;
+        margin: 0 auto 15px auto !important;
+    }
+
+    .main-nav {
+        float: none !important;
+        text-align: center !important;
+    }
+
+    .main-nav li {
+        display: inline-block !important;
+        margin: 5px 10px !important;
+    }
+}
+
+
+
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -18,6 +66,26 @@ main {
     margin: 0 auto;
     padding: 20px;
 }
+
+.navigation {
+    background-color: red;
+    margin-bottom: 5px;
+
+}
+
+nav a {
+    text-decoration: none;
+    padding-left: 20px;
+    font-size: 20px;
+    transition: 0.5s;
+}
+
+nav a:hover {
+    cursor: pointer;
+    color: black;
+    text-decoration: underline;
+}
+
 header {
     background-color: #ffffff;
     border-bottom: 3px solid #1b4f72;
@@ -73,8 +141,9 @@ section {
     border-left: 5px solid red;
     padding-left: 12px;
 }
+
 .departments-wrapper {
-    margin: 0 -10px; 
+    margin: 0 -10px;
 }
 
 .card {
@@ -90,22 +159,25 @@ section {
     border: 1px solid #e5e8e8;
     border-radius: 6px;
     padding: 20px;
-    height: 160px; /* Fixed height container to keep items leveled */
-    line-height: 120px; /* Vertical align hack for inline images */
+    height: 160px;
+    /* Fixed height container to keep items leveled */
+    line-height: 120px;
+    /* Vertical align hack for inline images */
 }
 
 .image {
     max-width: 100%;
     max-height: 100%;
-    vertical-align:middle;
+    vertical-align: middle;
 }
 
 .card h3 {
     font-size: 16px;
     color: black;
     margin: 15px 0 5px 0;
-    height: 40px; /* Forces uniform titles layout height */
-    overflow:visible;
+    height: 40px;
+    /* Forces uniform titles layout height */
+    overflow: visible;
 }
 
 .clear {
@@ -188,8 +260,8 @@ footer a:hover {
 }
 
 .social-nav a:hover {
-    background-color:#e5e8e8;
-    color:#1a252f;
+    background-color: #e5e8e8;
+    color: #1a252f;
     font-style: oblique;
     text-decoration: none;
 
