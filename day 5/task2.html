@@ -4,12 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fetch and Render Data</title>
-
 <style>
-/* Existing styles from previous step remain the same... */
 
 #status-message {
-    grid-column: 1 / -1; /* Stretch across the entire grid row */
+    grid-column: 1 / -1;
     text-align: center;
     padding: 30px;
     font-size: 1.2rem;
@@ -17,14 +15,12 @@
     border-radius: 8px;
 }
 
-/* Loading state styles */
 #status-message.loading {
     color: #2563eb;
     background-color: #eff6ff;
     border: 1px dashed #bfdbfe;
 }
 
-/* Error state styles */
 #status-message.error {
     color: #dc2626;
     background-color: #fef2f2;
@@ -39,52 +35,8 @@
     <div class="departments-grid" id="departments-container">
         <div id="status-message" class="loading">Loading departments, please wait...</div>
     </div>
+
+    <script src="script.js"></script>
+
 </body>
-<script>
-    // Container where cards or error messages will display
-const container = document.getElementById('departments-container');
-
-// 1. Helper function to generate card UI templates from data
-const createCardsHTML = (departmentsArray) => {
-    return departmentsArray.map(dept => `
-        <div class="dept-card" style="border-top: 5px solid ${dept.colour};">
-            <div class="dept-logo">${dept.logo}</div>
-            <h3 class="dept-name">${dept.name}</h3>
-            <p class="dept-desc">${dept.description}</p>
-        </div>
-    `).join('');
-};
-
-// 2. Main asynchronous function to fetch data from the JSON file
-const fetchAndRenderDepartments = async () => {
-    try {
-        // Trigger a GET request to the local mock data file
-        const response = await fetch('./departments.json');
-
-        // Check if the server responded with a bad status code (e.g., 404 Not Found)
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-
-        // Parse the raw incoming text streams into a real JavaScript Array
-        const data = await response.json();
-
-        // Inject the generated cards directly into our grid, replacing the loading text
-        container.innerHTML = createCardsHTML(data);
-
-    } catch (error) {
-        // 3. Error Handling block: If anything above fails, catch it and update the UI
-        console.error("Failed to fetch departments:", error);
-        
-        container.innerHTML = `
-            <div id="status-message" class="error">
-                ⚠️ Unable to load departments right now. Please check your connection or try again later.
-            </div>
-        `;
-    }
-};
-
-// Fire the async process when the script loads
-fetchAndRenderDepartments();
-</script>
 </html>
