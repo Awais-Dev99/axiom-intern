@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Computer Science",
+        "description": "Explore software engineering, web development, and artificial intelligence.",
+        "logo": "💻",
+        "colour": "#2563eb"
+    },
+    {
+        "name": "Electrical Engineering",
+        "description": "Design and build circuits, power systems, and robotics hardware.",
+        "logo": "⚡",
+        "colour": "#dc2626"
+    },
+    {
+        "name": "Business Administration",
+        "description": "Master marketing, finance, leadership, and startup management.",
+        "logo": "📊",
+        "colour": "#16a34a"
+    },
+    {
+        "name": "Mechanical Engineering",
+        "description": "Study thermodynamics, structural mechanics, and advanced machinery.",
+        "logo": "⚙️",
+        "colour": "#d97706"
+    }
+]

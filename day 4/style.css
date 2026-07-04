@@ -1,5 +1,7 @@
 @media screen and (max-width: 768px) {
-    /* --- CARD GRID REMAINING STYLES --- */
+    .header-container {
+        padding: 15px 20px !important;
+    }
     .card {
         width: 100% !important;
         float: none !important;
@@ -25,17 +27,14 @@
         text-align: center;
     }
 
-    /* --- FIXED FIXED HEADER STYLES FOR MOBILE --- */
-    
-    /* 1. Center the logo perfectly on mobile */
+
     .logo {
-        float: none !important; 
+        float: left !important; 
         display: block !important;
         margin: 0 auto 10px auto !important;
         height: 70px !important;
     }
 
-    /* 2. Style the heading text so it looks neat when it wraps */
     .main-heading {
         font-size: 20px !important;
         text-align: center !important;
@@ -43,25 +42,37 @@
         display: block !important;
     }
 
-    /* 3. Center the hamburger menu button beneath the title */
+    .marquee-row {
+        align-items: center !important;
+        padding: 0 20px 15px !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+    }
+
+    .marquee-row marquee {
+        width: auto !important;
+        flex: 1 !important;
+    }
+
     .menu-toggle {
         display: block !important;
-        float: none !important;       /* Stop floating right */
-        margin: 10px auto !important; /* Centers the button horizontally */
-        background-color: #1b4f72;    /* Give it a solid color block background */
+        margin-top: 0 !important; 
+        background-color: #1b4f72;    
         color: white;
         padding: 5px 15px;
         border-radius: 4px;
+        float: none !important;
+        align-self: center;
     }
 
-    /* 4. Default Hidden state for mobile navigation links */
     .main-nav {
         display: none !important;
         width: 100% !important;
         float: none !important;
-        background-color: #1b4f72;    /* Matches the institute theme blue */
+        background-color: #1b4f72;    
         padding: 10px 0;
         margin-top: 10px !important;
+        clear: both !important;
     }
 
     .main-nav li {
@@ -71,7 +82,7 @@
     }
 
     .main-nav a {
-        color: #ffffff !important;   /* Makes text easily readable over deep blue */
+        color: #ffffff !important;  
         font-size: 16px !important;
         display: block;
     }
@@ -102,12 +113,14 @@ main {
 }
 
 .navigation {
+    
     background-color: red;
     margin-bottom: 5px;
 
 }
 
 nav a {
+    color: black;
     text-decoration: none;
     padding-left: 20px;
     font-size: 20px;
@@ -132,7 +145,11 @@ header {
     margin: 0 auto;
     padding: 0 20px;
 }
-
+.header-container::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
 .logo {
     display: block;
     margin: 0 auto 10px auto;
@@ -146,10 +163,34 @@ header {
     font-weight: 700;
 }
 
-marquee {
+.marquee-row {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.marquee-row marquee {
+    flex: 1;
+    min-width: 0;
     background-color: red;
     display: block;
     padding: 2px 0;
+}
+
+.menu-toggle {
+    display: block;
+    background-color: #1b4f72;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 4px;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    flex-shrink: 0;
 }
 
 .marquee-text {
@@ -194,9 +235,7 @@ section {
     border-radius: 6px;
     padding: 20px;
     height: 160px;
-    /* Fixed height container to keep items leveled */
     line-height: 120px;
-    /* Vertical align hack for inline images */
 }
 
 .image {
@@ -210,7 +249,6 @@ section {
     color: black;
     margin: 15px 0 5px 0;
     height: 40px;
-    /* Forces uniform titles layout height */
     overflow: visible;
 }
 
@@ -315,8 +353,8 @@ footer a:hover {
     font-size: 28px;
     color: #1b4f72;
     cursor: pointer;
-    float: right;
-    margin-top: 15px;
+    flex-shrink: 0;
+    margin-top: 0;
 }
 .back-to-top {
     position: fixed;

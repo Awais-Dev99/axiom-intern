@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 5</title>
+    <style>body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8fafc;
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    color: #1e293b;
+}
+
+.departments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.dept-card {
+    background-color: #ffffff;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease;
+}
+
+.dept-card:hover {
+    transform: translateY(-4px);
+}
+
+.dept-logo {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+}
+
+.dept-name {
+    margin: 0 0 8px 0;
+    color: #0f172a;
+    font-size: 1.25rem;
+}
+
+.dept-desc {
+    margin: 0;
+    color: #64748b;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}</style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our Institution</h1>
+    </header>
+
+    <div class="departments-grid" id="departments-container"></div>
+</body>
+
+<script>
+const departments = [
+    {
+        name: "Computer Science",
+        description: "Explore software engineering, web development, and artificial intelligence.",
+        logo: "💻", 
+        colour: "#2563eb" 
+    },
+    {
+        name: "Electrical Engineering",
+        description: "Design and build circuits, power systems, and robotics hardware.",
+        logo: "⚡",
+        colour: "#dc2626" 
+    },
+    {
+        name: "Business Administration",
+        description: "Master marketing, finance, leadership, and startup management.",
+        logo: "📊",
+        colour: "#16a34a" 
+    },
+    {
+        name: "Mechanical Engineering",
+        description: "Study thermodynamics, structural mechanics, and advanced machinery.",
+        logo: "⚙️",
+        colour: "#d97706" 
+    }
+];
+
+const renderDepartments = (departmentsArray) => {
+    const container = document.getElementById('departments-container');
+    
+    const cardTemplates = departmentsArray.map(dept => {
+        return `
+            <div class="dept-card" style="border-top: 5px solid ${dept.colour};">
+                <div class="dept-logo">${dept.logo}</div>
+                <h3 class="dept-name">${dept.name}</h3>
+                <p class="dept-desc">${dept.description}</p>
+            </div>
+        `;
+    });
+
+    container.innerHTML = cardTemplates.join('');
+};
+
+renderDepartments(departments);</script>
+</html>

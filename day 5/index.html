@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f4f4f9;
+}
+
+.search-container {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#course-search {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.courses-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.course-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.course-card h3 {
+    margin-top: 0;
+    color: #333;
+}
+    </style>
+</head>
+<body>
+    <!-- <p id="para">0</p>
+    <button onclick="clic()">click</button> -->
+<div class="search-container">
+        <input type="text" id="course-search" placeholder="Search for courses...">
+    </div>
+
+    <div class="courses-container" id="courses-grid">
+        <div class="course-card">
+            <h3 class="course-title">Introduction to JavaScript</h3>
+            <p>Learn the basics of DOM manipulation and ES6+.</p>
+        </div>
+        <div class="course-card">
+            <h3 class="course-title">Mastering Node.js & Express</h3>
+            <p>Build powerful REST APIs and backend services.</p>
+        </div>
+        <div class="course-card">
+            <h3 class="course-title">React Fundamentals</h3>
+            <p>Understand components, hooks, and state management.</p>
+        </div>
+        <div class="course-card">
+            <h3 class="course-title">MongoDB Database Design</h3>
+            <p>Master NoSQL database modeling and Mongoose.</p>
+        </div>
+    </div>
+
+</body>
+<script>
+// 1. Select the search input and all the course cards using DOM selectors
+const searchInput = document.getElementById('course-search');
+const courseCards = document.querySelectorAll('.course-card');
+
+// 2. Add an 'input' event listener to capture real-time typing
+searchInput.addEventListener('input', (event) => {
+    // Get the current value typed by the user and convert to lowercase for case-insensitive matching
+    const query = event.target.value.toLowerCase();
+
+    // 3. Loop through each course card using forEach
+    courseCards.forEach((card) => {
+        // Find the title element within the current card
+        const titleElement = card.querySelector('.course-title');
+        
+        // Extract its text content and convert to lowercase
+        const courseTitle = titleElement.textContent.toLowerCase();
+
+        // 4. Check if the course title includes the searched query
+        if (courseTitle.includes(query)) {
+            // Keep the card visible if it matches
+            card.style.display = 'block';
+        } else {
+            // Hide the card if it doesn't match
+            card.style.display = 'none';
+        }
+    });
+});
+
+//     let number=10
+//     function clic(){
+//  let num=document.getElementById("para").innerHTML=number;
+//     }
+   
+</script>
+</html>
